@@ -7,7 +7,7 @@ This folder collects original game concepts. Each idea gets its own folder conta
 - `Games/`: games the user plans to work on in the near future (the active list). One folder per game, using a plain working name that's easy to rename once a real title exists.
 - `Open/`: earlier concept docs that aren't on the active list (Puddle Pals, Unclaimed, Scrapyard Derby, The Lantern Keeper).
 - `cloder.fig`: OpenPencil design file for mockups and illustrations (see "Design mockups" below).
-- Each game folder contains exactly one file: `Game_Design_Document.md`. Don't put mockups or other files in game folders.
+- Each game folder contains `Game_Design_Document.md`. Once a game moves toward production it may also hold a `CLAUDE.md` (Godot build instructions, copied from `Godot Template/`) and its Aseprite source art (`*.aseprite`), as `Wave Defense Auto Chess/` does. Mockups stay in `cloder.fig`, not in game folders.
 - Don't nest ideas inside one another or mix multiple concepts into a single doc.
 
 ## Active games (`Games/`)
