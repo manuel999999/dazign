@@ -378,7 +378,7 @@ Still TBD:
 - **More enemies and more HP together.** Groups grow over the stage (to about ×1.5–1.75 by the boss sub-stage, *Draft*), and enemy HP covers the rest. HP alone was measured: it makes waves long before it makes them dangerous.
 - **A boss is scaled less than the waves before it**, with a factor of its own, so it doesn't become a wall. Bosses and mini-bosses stay single, as at night.
 
-**Chains (decided by the user 2026-11-14; not built).** The stages get long: their sub-stages add up to 36 / 52 / 80 / 124 / 142 waves, and on Greenwood Road the board already stops growing in size around wave 20. So a long stage is split into **chains**, and only the sub-stages of one chain are connected.
+**Chains (decided by the user 2026-11-14; the layout and rules are built since 2026-11-14, and every card is tuned).** The stages get long: their sub-stages add up to 36 / 52 / 80 / 124 / 142 waves, and on Greenwood Road the board already stops growing in size around wave 20. So a long stage is split into **chains**, and only the sub-stages of one chain are connected.
 - **A chain is about 40–55 waves.** The limit is counted in waves, not sub-stages, because sub-stages get longer through the game.
 - **A stage is split at a mini-boss sub-stage**, so every chain ends on a climax, and **the last chain holds the stage's boss**.
 - **A new chain starts like any run today**: the starting pick, 3 coins, a fresh fence. Its first sub-stage is already tuned for that.
@@ -393,7 +393,7 @@ Still TBD:
 | 4 Goblin Keep | 4-1 to 4-5 · 4-6 to 4-8 · 4-9 to 4-10 | 49 · 39 · 36 | the Goblin King · The Sick Ward · the Goblin Warlord |
 | 5 Frozen Reach | 5-1 to 5-5 · 5-6 to 5-8 · 5-9 to 5-10 | 55 · 45 · 42 | the Glacier Golem · the Elder Mender · the Frost Wyrm |
 
-- *Draft:* 4-8 The Sick Ward is the one chain end without a mini-boss. The Elder Mender would fit its last wave ("Menders by the dozen"). The other way to cut stage 4, 4-6 to 4-9 and then 4-10 alone, ends on the Warchief and the Sergeant but leaves the Warlord as a fresh 20-wave run with no carried build.
+- **4-8 The Sick Ward ends on the Elder Mender (decided by the user 2026-11-14; built):** it was the one chain end without a mini-boss, so the Elder Mender now leads its last wave ("Menders by the dozen"), and every card ends on a named fight.
 - *Draft (Claude's reading):* **Second Wind is once per chain and Late Bloomer grows across a chain.** The user's 2026-11-13 decision said "per stage", when a stage was one connected run.
 - *Banked, not decided:* **shorter late sub-stages.** 4-10 has 20 waves and 5-10 has 24 because a fresh run needs that long to build up; a carried board doesn't. It would let chains hold more sub-stages, but it changes the waves, the rewards per wave and the pacing. Look at it after a split stage has been played.
 
@@ -440,11 +440,11 @@ The commander reaches the max level (8, ten heroes on the board) about two waves
 - **Wave length:** regular waves average 18–40 seconds (the slowest tenth up to about 64), the boss wave 100 seconds, so both stay in their bands. The late waves of each sub-stage get longer (1-5's waves 8–9 from about 52 to 60–65 seconds) while the early ones get shorter, since a carried board crushes them.
 - **Why 1-4 and 1-5 are easier than their targets:** about half of the scripted player's first-try losses end stuck, because the same weak build loses again. With 1-4 and 1-5 at HP ×5.4 and ×5.8, 1-4 reached its 85% but 7 of 48 playthroughs got stuck, 4 of them on 1-4. The stuck rate was kept, and the first-try targets for 1-4 and 1-5 wait on a decision: a small help on retry, or a play-test showing that players rebuild better than the scripted player. (Before a retry the scripted player now puts damage dealers first, as a player who lost would; that didn't measurably lower the stuck rate.)
 - **1-3 is the spike:** "The Big Ones" brings 12 and then 10 Orc Bruisers at once in its last two waves (16 and 13 with bigger groups), a wall for a board short on damage, however often it retries. Its HP is held just above 1-2's for that reason. A chain's featured-enemy finale may need the same care on other stages.
-- **A save from before checkpoints starts its furthest sub-stage fresh**, with one hero against HP tuned for a carried board, so enemies barely take damage. **Left as is (user, 2026-11-14):** only saves from before the branch meet it, and the player restarts the stage from 1-1.
+- **A save from before checkpoints plays each unfinished card from Act 1** (*Draft, Claude's call with the act screens, 2026-11-14*). An act past the first is only ever started with the army the act before it handed on; a card without a waiting army starts at Act 1, whatever it has cleared. Stars and clears are kept. Before this, such a save started its furthest sub-stage fresh, with one hero against HP tuned for a carried board (the user met it and chose to restart from 1-1 by hand); the act path could not show that state, and a Start over followed by a loss in Act 1 fell back into it.
 
 **First play-test (user, 2026-11-14):** beat the Goblin King without losing a sub-stage: "overpowered, but in a good way", strong from 1-4 on, saving coins through 1-5 with nothing left to buy, and no wave dragged. So no help on retry for now, and the chain needs to be harder for a real player from 1-4 on. **But the shape is confusing** ("I like it but it's confusing"): what carries and what resets was not clear.
 
-**Redesign decided by the user (2026-11-14; mockups approved, not built): one run with acts.** The rules above stay. What changes is how a stage is shown, so there is one thing to understand instead of four (stage, sub-stage, checkpoint, saved run):
+**Redesign decided by the user (2026-11-14; mockups approved; built the same day, rules and screens): one run with acts.** The rules above stay. What changes is how a stage is shown, so there is one thing to understand instead of four (stage, sub-stage, checkpoint, saved run):
 - **A stage is one run, and its sub-stages are acts inside it.** The Battle tab shows the acts as a path, not as levels to pick: ticks and stars behind, a marker where the player is, the boss at the end. One button: PLAY, or CONTINUE with the act and wave. Start over is a small separate button and asks first.
 - **Clearing an act happens inside the run.** A window shows the act's stars and rewards and then two lists: **carries on** (heroes and stars, coins, level and EXP, buffs and upgrades) and **starts fresh** (fence, base, three new stars, wave 1). Then on to the next act, with no trip to the menu.
 - **Losing an act** shows what broke through, and where a retry starts: the start of that act, with the army as it was then. Main menu keeps the place; Start over begins a new army at Act 1.
@@ -453,7 +453,48 @@ The commander reaches the max level (8, ten heroes on the board) about two waves
 - **The long stages are one card per run (decided 2026-11-14):** ten cards in all, Greenwood Road · Iron Pass · Wild Hills Part 1–2 · Goblin Keep Part 1–3 · Frozen Reach Part 1–3, split as in "Chains" above. Acts are numbered from 1 on every card, and each card has its own army and its own final fight, so one card is always one army. (Not chosen: one card with a camp in its path where the army ends.)
 - **What doesn't change:** an act is a sub-stage as it exists today, so each keeps its three stars, its first-clear reward and its place in the unlock order; the star total, the chests and the tree's points are untouched. Night stays one long run per stage.
 - *Draft wording in the game:* "Act" and "Part"; the words sub-stage, checkpoint and chain are not shown to the player.
-- *Next:* new difficulty targets. The scripted player's targets were met and a real player was still overpowered from the fourth act on, so the targets need to be set harder before the cards are tuned.
+- *Built (2026-11-14), rules only:* all ten cards are connected runs in the game: the first act of a card starts with a new army (starting pick, 3 coins), each later act starts from the army the act before it ended with, a lost act is retried from its start, and clearing a card's last act ends that army. Every card is tuned for a carried army since 2026-11-14 (below).
+- *Built (2026-11-14), the screens:* the Battle tab's ten cards with the act path, PLAY / CONTINUE and "Start over from Act 1"; the act-cleared, act-lost and stage-cleared windows; the act in the wave pill, the act track and the act's sign as it starts. Going on to the next act fades through black. *Small things built that the mockups did not draw, to confirm:* Start over after a lost act needs a second tap, since it drops the army; a part that is not its stage's last says "Part 1 cleared!"; a cleared card nobody is playing shows every act ticked and PLAY starts it again at Act 1; "YOU ARE HERE" shows only when an army is mid-card; a lost first act offers Retry and Main menu only. *Changed after play (user, 2026-11-15):* the act-cleared window's "Stop here" is a real Main menu button ("your place is kept"), not a text link, which was easy to miss.
+- **Harder later acts (decided by the user 2026-11-14):** a later act gets harder by **more enemy HP, bigger groups, and more resistance: armor** (a flat amount off every hit, on every enemy) **and control resistance** (less of each stun and knock-back lands), all four rising act by act. And **"don't make the first stage too hard"**: Greenwood Road takes a small step, then the user plays it, and the other nine cards are tuned to the level that felt right.
+- **Greenwood Road, second pass (2026-11-14; placeholders, the scripted player, no talents, 48 playthroughs, up to two retries per act):**
+
+| | Act 1 | Act 2 | Act 3 | Act 4 | Act 5 (boss) |
+|---|---|---|---|---|---|
+| Group sizes | ×1 | ×1.15 | ×1.3 | ×1.5 | ×1.6 |
+| Enemy HP | ×1 | ×2.8 | ×2.9 | ×5.1 | ×5.5 |
+| Boss and mini-boss HP, on top | | | | | ×0.5 |
+| Armor on every enemy | | | | +1 | +1 |
+| Control resistance (rating) | | | +20 | +30 | +40 |
+| Won on the first try (first pass) | 100% (100) | 98% (98) | 94% (92) | 88% (96) | 87% (87) |
+| Won with three stars (first pass) | 100% | 81% (81) | 88% (93) | 78% (89) | 67% (78) |
+| Fence HP lost per run (first pass) | 1 | 149 | 109 (103) | 248 (122) | 248 (203) |
+
+  - A rating of 20 / 30 / 40 lets 83 / 77 / 71% of a stun or push land (bosses already have ratings of their own; this adds to them). Roots and slows have no rating.
+  - **Stuck:** 5 of 48 (10%, first pass 6%), a little over the 1-in-20 aim; accepted for the play-test, since players rebuild better than the scripted player. Waves are no longer than before (regular waves 37–42 seconds on average, the boss wave about 100).
+  - **Armor is the strongest of the four:** 2 armor on Act 5 alone took the scripted player from 87% to 55% first try. More HP and bigger groups alone made waves longer and, past a point, many more playthroughs stuck, which is why the step leans on resistance.
+  - **Played by the user (2026-11-14): "it's looking good! it's not that hard but it's exciting."** This is the level the other nine cards are tuned to.
+- **The other nine cards, tuned to Greenwood Road's level (2026-11-14; placeholders, the scripted player, no talents, 48 playthroughs a card, up to two retries per act).** *Claude's reading of "the same level":* a card's first act as it is, its middle acts won on the first try about 90–95% of the time, its last act about 85%, and at most about 1 playthrough in 10 stuck. Each card is played with every hero at the level a player is expected to have when the card starts (the low end of the level model, so the cards don't come out too hard): level 4 on Iron Pass, 6 and 7 on Wild Hills, 8, 9 and 10 (rank 2) on Goblin Keep, 10, 11 and 12 (rank 2) on Frozen Reach. The older *Draft* (a boss card at the stage's old 75 / 70 / 65 / 60 / 55%) was not used, since the user found Greenwood Road's 87% exciting.
+
+| Card | Group sizes, acts 2 on | Enemy HP, acts 2 on | Armor / control rating, acts 2 on | Won on the first try, act by act | Stuck |
+|---|---|---|---|---|---|
+| Greenwood Road | ×1.15 / 1.3 / 1.5 / 1.6 | ×2.8 / 2.9 / 5.1 / 5.5 | 0 / 0 / 1 / 1 · 0 / 20 / 30 / 40 | 100 / 98 / 94 / 88 / 87% | 5 of 48 |
+| Iron Pass | ×1.15 / 1.3 / 1.45 / 1.55 / 1.65 | ×2.8 / 4.2 / 6.0 / 6.4 / 5.6 | 0 / 0 / 1 / 1 / 1 · 0 / 20 / 25 / 35 / 40 | 96 / 92 / 100 / 96 / 87 / 93% | 5 of 48 |
+| Wild Hills · Part 1 | ×1.15 / 1.3 / 1.5 / 1.6 | ×2.8 / 5.0 / 6.0 / 7.0 | 0 / 0 / 1 / 1 · 0 / 20 / 30 / 40 | 96 / 94 / 98 / 94 / 83% | 5 of 48 |
+| Wild Hills · Part 2 | ×1.2 / 1.3 | ×2.8 / 3.3 | 0 / 0 · 20 / 30 | 83 / 92 / 80% | 5 of 48 |
+| Goblin Keep · Part 1 | ×1.15 / 1.3 / 1.5 / 1.6 | ×2.8 / 5.0 / 8.0 / 6.0 | 0 / 0 / 1 / 1 · 0 / 20 / 30 / 40 | 96 / 98 / 98 / 100 / 92% | 1 of 48 |
+| Goblin Keep · Part 2 | ×1.2 / 1.45 | ×3.0 / 5.2 | 0 / 1 · 20 / 30 | 98 / 90 / 91% | 4 of 48 |
+| Goblin Keep · Part 3 | ×1.2 | ×2.2 | 0 · 20 | 90 / 81% | 2 of 48 |
+| Frozen Reach · Part 1 | ×1.15 / 1.3 / 1.5 / 1.6 | ×3.6 / 5.0 / 5.0 / 7.2 | 0 / 0 / 0 / 1 · 0 / 20 / 30 / 40 | 100 / 100 / 96 / 94 / 89% | 4 of 48 |
+| Frozen Reach · Part 2 | ×1.2 / 1.4 | ×2.8 / 4.0 | 0 / 1 · 20 / 30 | 92 / 94 / 91% | 3 of 48 |
+| Frozen Reach · Part 3 | ×1.2 | ×1.9 | 0 · 20 | 94 / 88% | 4 of 48 |
+
+  - Every card's last act has its boss or mini-boss at ×0.5 HP on top of the act's HP, as on Greenwood Road.
+  - **The middle acts of the long cards need much more HP than Greenwood Road's:** at Greenwood's numbers they were won every time with almost no fence damage.
+  - **The last act of a short card needs much less:** it is a long boss run (15–24 waves), and at ×4 HP Goblin Keep Part 3's was won 6% of the time on the first try, mostly lost to Tunnel Grubs. So a last act's HP can be lower than the act before it.
+  - **Frozen Reach Part 1's fourth act gets no extra armor:** its Ice Golems already have armor, and one more made it a wall.
+  - Goblin Keep Part 1 came out a little easy (its last act 92%); left so.
+  - *Next:* the user plays the other cards.
+- **Clearing a card is a celebration (decided by the user 2026-11-14; built):** the stage-cleared window keeps its stars, rewards and boss, and its only button is MAIN MENU, with the next card named under it. NEXT STAGE and Replay are gone from it, so the player goes back to the menu to see what changed and what to upgrade. Replaying a card (from Act 1) is PLAY on its card on the Battle tab.
 - Mockups: page "Stage runs and acts" of `wave-defense.fig`, frames 22–27 (28 is the option not chosen).
 
 **Open questions to answer with the prototype:**
