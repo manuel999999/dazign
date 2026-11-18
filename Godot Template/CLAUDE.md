@@ -3,7 +3,24 @@
 <One paragraph: what the game is, the genre, the target platforms, and the orientation and base
 resolution.>
 
-Built with **Godot 4.7 and GDScript 2.0**. The main scene is `res://main.tscn`.
+Built with **Godot 4.7 and GDScript 2.0**. The main scene is `res://scenes/<main>.tscn`.
+
+**The design lives in the design folder** (`/Users/SpaceSheep/Documents/Space Sheep/Clode/Games/<Game>/`).
+The design doc is the source of truth for rules and features. It marks open questions **TBD** and
+Claude's ideas as *Draft* or *Suggested*: never build a TBD or Suggested rule as if the user had
+decided it. Ask, or build it behind a data value that is easy to change, and say so.
+
+**Where things are:**
+
+| What | Where |
+|---|---|
+| Design doc | `<design folder>/Game_Design_Document.md` |
+| Source art | `<e.g. the *.aseprite files in the design folder>` |
+| UI mockups | `<e.g. a .fig in the design folder (OpenPencil)>` |
+| Godot project | `/Users/SpaceSheep/Documents/Godot/<repo-folder>` (git repo) |
+
+**Source files stay in the design folder; only exports go into the Godot project.** Never edit an
+exported file (PNG, sprite sheet, generated `.tres`): change the source and re-export.
 
 **Keep secrets and store identifiers out of this file**: signing keys and their passwords, store
 and console ids, ad unit ids, analytics project ids, API keys, account emails. Keep them in the
@@ -103,23 +120,30 @@ Godot's new-project defaults rarely fit. Settle these first, then fill in the ta
 
 ```
 res://
-├── main.tscn            # composition root: builds and initializes the systems
-├── main.gd
+├── scenes/              # only the top-level screens you switch between, script beside each
+│   └── game.tscn        # the game: composition root (game.gd) that builds the systems
 ├── autoload/            # global services only (see Architecture)
 ├── features/            # one folder per feature: its scenes and their scripts together
 │   └── <feature>/
-├── ui/                  # screens, HUD, reusable widgets, theme.tres
+├── ui/                  # theme.tres and fonts/ at the top, then by area:
+│   ├── hud/             # HUD pieces
+│   ├── popups/          # windows and overlays
+│   └── widgets/         # reusable controls
 ├── scripts/
 │   ├── resources/       # Resource types (class_name ...Data)
 │   ├── data/            # plain data classes (RefCounted)
 │   └── enums/           # shared enums
 ├── data/                # .tres instances: tuning tables, content definitions
 ├── assets/              # imported files only: art/, audio/, fonts/, shaders/
-└── tools/               # headless scripts and editor plugins (@tool)
+├── tools/               # headless scripts and editor plugins (@tool)
+├── tests/               # GUT tests (test_*.gd)
+└── addons/              # third-party (e.g. gut/): don't edit
 ```
 
-A scene and the script attached to it live side by side. A script used by many features goes in
-`scripts/`, sorted by what the type *is*.
+**Sort by feature, not by file type** (Godot's guidance; decided with the user 2026-10-28, who
+comes from Unity's Scenes/Prefabs/Scripts folders). A scene and the script attached to it live
+side by side. `scenes/` is only for screens loaded with `change_scene_to_file`; a new screen
+goes there. A script used by many features goes in `scripts/`, sorted by what the type *is*.
 
 ---
 
@@ -144,6 +168,25 @@ A scene and the script attached to it live side by side. A script used by many f
   FileSystem dock handles this; `update_project_uids` repairs a move made outside it.
 - **Editing `project.godot` while the project is open in the editor**: the editor may write its
   own copy back over yours. Reload the project (Project → Reload Current Project) afterwards.
+
+### Model and effort check (user's request, 2026-11-13; widened 2026-11-18)
+
+The user switches between Fable and Opus 5.5 and sometimes forgets to. **Before an important
+task (design work such as a design-doc change, a mockup in OpenPencil or a system proposal, or building a
+feature or a big change), say in one or two lines which model and effort level fit it, and ask
+whether to go on or switch first** (`/model`). Do the same when the user asks which to use for a
+prompt. Don't ask for small or routine work, and not more than once per task.
+
+- **Fable, high effort:** features touching many systems, design proposals, balance diagnosis,
+  bugs that cross systems.
+- **Opus 5.5, medium or high:** a well-specified feature in one system, UI from an approved mockup.
+- **Opus 5.5, low or medium:** small fixes, tuning numbers, regenerating data, batches, exports.
+
+The session knows its model but may not see its effort level, so ask the user what it is set to
+rather than guessing.
+
+**`!OP` means OpenPencil** (the user's shorthand, 2026-11-18): "!OP" in a message refers to
+OpenPencil, the mockup tool, and its tools.
 
 ### Code conventions (GDScript)
 
@@ -171,7 +214,7 @@ Defaults that have worked well. Drop any that don't fit the game, and record why
 
 ### Layers
 
-1. **Main** (`main.tscn`): the composition root. It owns the systems, hands each one its
+1. **Main** (`scenes/game.tscn`, script `game.gd`): the composition root. It owns the systems, hands each one its
    dependencies, and calls `initialize()` on them in a fixed order.
 2. **Systems**: plain nodes under Main, one concern each (e.g. economy, waves, spawning, save).
    A system owns its state and is the only thing that changes it.
@@ -218,6 +261,10 @@ Game rules don't live in autoloads. A system that only one scene uses belongs in
   set-up.
 - When a tool or spreadsheet owns the numbers, **generate the `.tres` with a script** in
   `tools/`, and never hand-tune a generated resource.
+- **Don't list `res://` folders in game code.** In an exported build the files are remapped, so
+  `DirAccess.get_files_at("res://data/...")` returns `.remap` names, not the `.tres` you expect
+  (confirmed in merge-wave). Content lists are `@export` arrays set in a scene; add new content
+  there. Tools and tests may list folders (they run in the editor).
 
 ### Scenes and flow
 

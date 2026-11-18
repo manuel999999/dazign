@@ -18,7 +18,7 @@ All are portrait mobile games (Unity) unless noted. Docs are at v0.1: the user's
 2. `Auto RPG`: one auto-fighting character, stage maps that unlock by threshold (unlocked doesn't mean survivable).
 3. `Maze Tower Defense`: fine grid, 4x4 heroes, must always leave a 1x1 path, practice area for saving maze guides, random obstacles. Reference: Tropical Tower Wars (WC3), single-player.
 4. `Casino`: Classic mode (limited credits, lottery-style reset) and Campaign mode (casino stages, credit exchange at multipliers). Portrait, landscape if needed.
-5. `Blackjack`: casino-accurate rules and shoe. Card counting is possible but never assisted. Variants still to research together.
+5. `Blackjack`: casino-accurate rules and shoe. Card counting is possible but never assisted. One core engine, variants as a rules setting; which variants still to research together. **Godot**, project at `~/Documents/Godot/blackjack` (prototype started).
 6. `Roulette`: multiple variants, to research together.
 7. `Spell Wiring Hero`: deep spell building/wiring. Reference: God Eater bullet customization.
 8. `Programming Puzzle`: command-based (forward, rotate, loops) puzzle stages.
@@ -53,6 +53,7 @@ Each doc follows this section order:
 
 ## Design mockups (OpenPencil)
 
+- **`!OP` means OpenPencil** (the user's shorthand, 2026-11-18): "!OP" in a message refers to OpenPencil and its tools.
 - Mockups live in `cloder.fig`, opened in OpenPencil (the user calls the tab "cloder"). Claude can edit it directly through the OpenPencil tools.
 - **Draw natively, not by importing SVG.** The user prefers native layers. Use `render` with JSX (`Frame`, `Rectangle`, `Ellipse`, `Text`; props like `w`, `h`, `x`, `y`, `bg`, `color`, `size`, `weight`, `rounded`, `stroke`, `strokeWidth`, `opacity`, `flex="row|col"`, `gap`, `p`, `items`, `justify`, `grow`, `w="fill"`).
 - What doesn't work: dashed strokes, and `align` on Text (center text with an auto-layout parent frame instead). Inline `<svg>` inside `render` comes out at the wrong scale.
@@ -62,6 +63,23 @@ Each doc follows this section order:
 - Don't export images unless the user asks. Ask before drawing if the target app has no direct connection; the user declined screen control.
 - Current contents: "Mobile Screen" frame (1080x1920) holding "Wave Defense - Battle" (HUD, battlefield, fence HP, 6x3 base grid, shop with reroll/lock/upgrade fence). The "Hero Pick" screen was removed by the user. All numbers, hero names and grid size are placeholders.
 - pen.app: no connection to it yet. Options are pen.app's own MCP server, or a `.pen` file opened through OpenPencil.
+
+## Model and effort check (user's request, 2026-11-18)
+
+The user switches between Fable and Opus 5.5 and sometimes forgets to. **Before an important
+task (design-doc work, a new game concept, or drawing mockups in OpenPencil), say in one or two
+lines which model and effort level fit it, and ask whether to go on or switch first** (`/model`).
+Do the same when the user asks which to use. Don't ask for small or routine work, and not more
+than once per task.
+
+- **Fable, high effort:** new concepts, design proposals, new mockup screens or flows, balance
+  and system design.
+- **Opus 5.5, medium or high:** filling in a doc from decided notes, drawing a mockup from an
+  agreed description, revising existing frames.
+- **Opus 5.5, low or medium:** small doc edits, renames, moving or tidying layers, commits.
+
+The session knows its model but may not see its effort level, so ask the user what it is set to
+rather than guessing.
 
 ## Git
 
